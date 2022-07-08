@@ -1,0 +1,36 @@
+{
+  "name": "@candlecorp/grpc-web-pb",
+  "description": "Generated code from Wasmflow's protobuf schemas.",
+  "author": "The Wasmflow Team <wasmflow@candle.dev>",
+  "version": "0.0.0",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "clean": "rimraf generated/*",
+    "prebuild": "npm run clean",
+    "build": "npm run codegen",
+    "watch": "echo noop",
+    "prepublishOnly": "npm run build",
+    "precodegen": "rimraf generated/*",
+    "codegen": "cp ../../generated/wasmflow_grpc_web_pb* generated/",
+    "postcodegen": "replace-in-file '/\\.\\/wasmflow_pb(\\.js)?/g' '@candlecorp/grpc-pb' generated/* --isRegex"
+  },
+  "mocha": {
+    "extends": "../../etc/.mocharc.json"
+  },
+  "prettier": "../../etc/.prettierrc.json",
+  "eslintConfig": {
+    "extends": "../../etc/.eslintrc.json"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "protoc-gen-grpc-web": "^1.4.0"
+  },
+  "dependencies": {
+    "@candlecorp/grpc-pb": "file:../wasmflow-grpc-pb-js"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

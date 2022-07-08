@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://wasmflow.com/schema.json
+---
+version: 1
+host:
+  rpc:
+    enabled: true
+    port: 8060
+components:
+  echo:
+    instances:
+      log: core::log
+    flow:
+      - <> -> log.input
+      - log.output -> <>

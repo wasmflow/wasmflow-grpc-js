@@ -1,0 +1,6 @@
+{
+  "git.ignoreLimitWarning": true,
+  "yaml.schemas": {
+    "https://wasmflow.com/schema.json": "*.wafl"
+  }
+}

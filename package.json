@@ -1,0 +1,48 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "fetch-proto": "curl -L https://github.com/wasmflow/wasmflow/releases/latest/download/wasmflow.proto -o proto/wasmflow.proto",
+    "codegen": "npm run codegen:pb && lerna run codegen",
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "codegen:node-js": "grpc_tools_node_protoc --grpc_out='grpc_js:./generated' --js_out='import_style=commonjs,binary:./generated' -I ./proto ./proto/wasmflow.proto",
+    "codegen:node-ts": "grpc_tools_node_protoc --plugin='protoc-gen-ts=./node_modules/.bin/protoc-gen-ts' --ts_out='grpc_js:./generated' -I ./proto ./proto/wasmflow.proto",
+    "codegen:web": "grpc_tools_node_protoc --plugin='protoc-gen-grpc-web=./node_modules/.bin/protoc-gen-grpc-web' --js_out='import_style=commonjs:./generated' --grpc-web_out='import_style=commonjs+dts,mode=grpcwebtext:./generated' -I ./proto ./proto/wasmflow.proto",
+    "codegen:pb": "npm run codegen:node-js && npm run codegen:node-ts && npm run codegen:web",
+    "postinstall": "npm install --no-save --ignore-scripts grpc-tools && echo See Readme to see how to finish installing dependencies"
+  },
+  "devDependencies": {
+    "@grpc/proto-loader": "0.6.13",
+    "@types/chai": "4.3.1",
+    "@types/debug": "4.1.7",
+    "@types/google-protobuf": "3.15.6",
+    "@types/mocha": "9.1.1",
+    "@types/node": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "5.30.5",
+    "@typescript-eslint/parser": "5.30.5",
+    "chai": "4.3.6",
+    "eslint": "8.19.0",
+    "grpc_tools_node_protoc_ts": "5.3.2",
+    "lerna": "5.1.7",
+    "mocha": "10.0.0",
+    "prettier": "2.7.1",
+    "protoc-gen-grpc-web": "^1.4.0",
+    "replace-in-file": "^6.3.5",
+    "rimraf": "3.0.2",
+    "ts-node": "10.8.2",
+    "tslib": "^2.4.0",
+    "typescript": "4.7.4",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "@candlecorp/grpc-common": "file:packages/wasmflow-grpc-common",
+    "@candlecorp/grpc-node": "file:packages/wasmflow-grpc-node-js",
+    "@candlecorp/grpc-node-client": "file:packages/wasmflow-grpc-node-client-js",
+    "@candlecorp/grpc-node-pb": "file:packages/wasmflow-grpc-node-pb-js",
+    "@candlecorp/grpc-types": "file:packages/wasmflow-grpc-types",
+    "@candlecorp/grpc-web": "file:packages/wasmflow-grpc-web-js",
+    "@candlecorp/grpc-web-client": "file:packages/wasmflow-grpc-web-client-js",
+    "@candlecorp/grpc-web-pb": "file:packages/wasmflow-grpc-web-pb-js"
+  }
+}

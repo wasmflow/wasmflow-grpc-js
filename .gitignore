@@ -1,0 +1,5 @@
+packages/*/node_modules/
+packages/*/dist/
+archive/
+node_modules
+package-lock.json

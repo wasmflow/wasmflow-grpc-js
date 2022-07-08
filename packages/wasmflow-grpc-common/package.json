@@ -1,0 +1,42 @@
+{
+  "name": "@candlecorp/grpc-common",
+  "description": "TypeScript types and general conversion methods for Wasmflow types.",
+  "author": "The Wasmflow Team <wasmflow@candle.dev>",
+  "version": "0.0.0",
+  "main": "./dist/src/index.js",
+  "browser": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "prebuild": "npm run clean",
+    "build": "tsc --declaration",
+    "prewatch": "npm run clean",
+    "watch": "tsc -w --declaration",
+    "lint": "eslint src test",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
+    "test:unit": "mocha",
+    "test": "npm run lint && npm run test:unit"
+  },
+  "mocha": {
+    "extends": "../../etc/.mocharc.json"
+  },
+  "prettier": "../../etc/.prettierrc.json",
+  "eslintConfig": {
+    "extends": "../../etc/.eslintrc.json"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "@candlecorp/grpc-pb": "file:../wasmflow-grpc-pb-js",
+    "@candlecorp/grpc-types": "file:../wasmflow-grpc-types",
+    "@msgpack/msgpack": "2.7.2",
+    "uuid": "^8.3.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4"
+  }
+}
