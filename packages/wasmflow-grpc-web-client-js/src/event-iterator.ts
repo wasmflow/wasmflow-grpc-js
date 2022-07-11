@@ -64,7 +64,6 @@ class EventQueue<T> {
   removeCallback?: RemoveHandler;
 
   push(value: T): void {
-    console.log({ value });
     if (this.isStopped) return;
 
     const resolution = { value, done: false };

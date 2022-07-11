@@ -8,7 +8,7 @@ host:
 components:
   echo:
     instances:
-      log: core::log
+      log: wafl::core::log
     flow:
       - <> -> log.input
       - log.output -> <>

@@ -1,15 +1,13 @@
 const expect = chai.expect;
 const debug = console.debug;
 
-import { Client } from '../src/client';
-
 describe('client', function () {
   it('should connect', async () => {
-    const client = new Client('test', 'http://127.0.0.1:8080');
-    expect(client).to.be.instanceOf(Client);
+    const client = new WasmflowClient('test', 'http://127.0.0.1:8080');
+    expect(client).to.be.instanceOf(WasmflowClient);
   });
   it('should make invocations', async () => {
-    const client = new Client('test', 'http://127.0.0.1:8080');
+    const client = new WasmflowClient('test', 'http://127.0.0.1:8080');
     debug('invoking');
     const stream = await client.invoke('echo', { input: 'Hello world' });
     debug('waiting on output');
@@ -20,7 +18,7 @@ describe('client', function () {
     expect(output).to.deep.equal({ output: { value: 'Hello world' } });
   });
   it('should make list requests', async () => {
-    const client = new Client('test', 'http://127.0.0.1:8080');
+    const client = new WasmflowClient('test', 'http://127.0.0.1:8080');
     const list = await client.list();
     expect(list.length).to.equal(1);
     const provider = list[0];
