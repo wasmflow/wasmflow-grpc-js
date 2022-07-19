@@ -1,6 +1,6 @@
 import { types } from '@candlecorp/grpc-types';
-import { conversions } from '../../wasmflow-grpc-node-js/src';
-import * as rpc from '../../wasmflow-grpc-node-pb-js/src';
+import { conversions } from '@candlecorp/grpc-node';
+import * as rpc from '@candlecorp/grpc-node-pb';
 import * as models from '@candlecorp/grpc-pb';
 
 import { decodeMessage, localBatchInvocation, Entity } from '@candlecorp/grpc-common';
