@@ -11,7 +11,7 @@
     "build:dist": "tsc --declaration",
     "build:browser": "webpack -c webpack.config.js",
     "compile": "npm run clean && npm run build",
-    "clean": "rimraf dist/* && rimraf && browser/*",
+    "clean": "rimraf dist/* && rimraf browser/*",
     "lint": "eslint src test",
     "prepublishOnly": "npm run compile",
     "format": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
