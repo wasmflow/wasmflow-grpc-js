@@ -43,6 +43,8 @@
     "@candlecorp/grpc-common": "file:../wasmflow-grpc-common",
     "@candlecorp/grpc-types": "file:../wasmflow-grpc-types",
     "@candlecorp/grpc-web": "file:../wasmflow-grpc-web-js",
+    "@candlecorp/grpc-web-pb": "file:../wasmflow-grpc-web-pb-js",
+    "tslib": "2.4.0",
     "grpc-web": "1.3.1"
   },
   "directories": {
