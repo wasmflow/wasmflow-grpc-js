@@ -2,7 +2,7 @@
   "name": "@candlecorp/grpc-node-pb",
   "description": "Generated code from Wasmflow's protobuf schemas.",
   "author": "The Wasmflow Team <wasmflow@candle.dev>",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
